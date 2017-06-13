@@ -98,8 +98,11 @@
     border-left: solid #000;
     border-left-width: 5px; }
 
+#projeto {
+  padding-top: 20px; }
+
 #footer {
-  margin: 290px 0 0 0;
+  margin: 200px 0 0 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
