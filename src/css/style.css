@@ -132,5 +132,29 @@
       #footer .footer__social-list .footer__social-list__item i {
         color: #fff; }
 
+#conteudo .conteudo__about {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 15px; }
+  #conteudo .conteudo__about .conteudo__about-list {
+    -webkit-box-align: left;
+    -webkit-align-items: left;
+        -ms-flex-align: left;
+            align-items: left;
+    font-size: 15px; }
+    #conteudo .conteudo__about .conteudo__about-list h3 {
+      font-weight: bold; }
+
 body {
   background-color: #fff; }
