@@ -3,9 +3,22 @@
     margin: 20px 0 0 0;
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: #F44336;
     .footer__cc{
         text-align: center;
         color: #fff;
+    }
+    .footer__social-list{
+        display: flex;
+        list-style: none;
+        padding-right: 10px;
+        .footer__social-list__item {
+            padding-right: 10px;
+            font-size: 20px;
+            i{
+              color: #fff;  
+            }
+        }
     }
 }
