@@ -1,5 +1,6 @@
 const gulp = require('gulp')
     , clean = require('gulp-clean')
+    ,imagemin = require('gulp-imagemin')
     , cssmin = require('gulp-cssmin')
     , autoprefixer = require('gulp-autoprefixer')
     , csslint = require('gulp-csslint')
@@ -15,9 +16,15 @@ const gulp = require('gulp')
 csslint.addFormatter('csslint-stylish');
 prefixerOpts = {browsers: ['last 15 versions']};
 
-gulp.task('default', ['clearDist'], () => gulp.start('copyImg', 'minifyAll', 'copyFonts', 'generate-service-worker-prod'));
+gulp.task('default', ['clearDist'], () => gulp.start('copyImg', 'minifyAll', 'copyFonts', 'build-img', 'generate-service-worker-prod'));
 
 gulp.task('clearDist', () => gulp.src('dist').pipe(clean()));
+
+gulp.task('build-img', function() {
+  return gulp.src('dist/img/**/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('dist/img'));
+});
 
 gulp.task('copyImg', () => gulp.src('src/img/**/*').pipe(gulp.dest('dist/img')));
 

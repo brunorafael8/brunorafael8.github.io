@@ -1,14 +1,11 @@
 #footer{
-    margin: 200px 0 0 0;
+    bottom: 0;
+    margin: 20px 0 0 0;
     display: flex;
     justify-content: center;
     background-color: #F44336;
-    .footer__item{
-        color: #fff;
-        font-size: 10px;
-        line-height: 20px;
+    .footer__cc{
         text-align: center;
-        
-
+        color: #fff;
     }
 }

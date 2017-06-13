@@ -2,19 +2,19 @@
   "name": "Bruno Rafael",
   "short_name": "Bruno Rafael",
   "icons": [{
-        "src": "imgs/icons/apple-icon-120x120.png",
+        "src": "img/icons/apple-icon-120x120.png",
         "type": "image/png",
         "sizes": "120x120"
       }, {
-        "src": "imgs/icons/apple-icon-152x152.png",
+        "src": "img/icons/apple-icon-152x152.png",
         "type": "image/png",
         "sizes": "152x152"
       }, {
-        "src": "imgs/icons/android-icon-144x144.png",
+        "src": "img/icons/android-icon-144x144.png",
         "type": "image/png",
         "sizes": "144x144"
       }, {
-        "src": "imgs/icons/android-icon-192x192.png",
+        "src": "img/icons/android-icon-192x192.png",
         "type": "image/png",
         "sizes": "192x192"
       }],
