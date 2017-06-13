@@ -1,12 +1,14 @@
 const gulp = require('gulp')
     , clean = require('gulp-clean')
-    ,imagemin = require('gulp-imagemin')
+    , imagemin = require('gulp-imagemin')
     , cssmin = require('gulp-cssmin')
     , autoprefixer = require('gulp-autoprefixer')
     , csslint = require('gulp-csslint')
     , sass = require('gulp-sass')
     , uglify = require('gulp-uglify')
+    , sourcemaps = require('gulp-sourcemaps')
     , babel = require('gulp-babel')
+    , concat = require('gulp-concat')
     , jshint = require('gulp-jshint')
     , jshintStylish = require('jshint-stylish')
     , usemin = require('gulp-usemin')
@@ -16,7 +18,7 @@ const gulp = require('gulp')
 csslint.addFormatter('csslint-stylish');
 prefixerOpts = {browsers: ['last 15 versions']};
 
-gulp.task('default', ['clearDist'], () => gulp.start('copyImg', 'minifyAll', 'copyFonts', 'build-img', 'generate-service-worker-prod'));
+gulp.task('default', ['copy'], () => gulp.start('sass', 'usemin', 'generate-service-worker-prod'));
 
 gulp.task('clearDist', () => gulp.src('dist').pipe(clean()));
 
@@ -25,17 +27,29 @@ gulp.task('build-img', function() {
     .pipe(imagemin())
     .pipe(gulp.dest('dist/img'));
 });
+gulp.task('copy', ['clearDist'], function() {
+    return gulp.src('src/**/*')
+        .pipe(gulp.dest('dist'));
+});
+gulp.task('babel', () => {
+    return gulp.src('src/js/**/*.js')
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(concat('js/app.js'))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('dist'));
+});
+gulp.task('usemin', function() {
+  return gulp.src('dist/**/*.html')
+    .pipe(usemin({
+      js: [babel]
+    }))
+    .pipe(gulp.dest('dist'));
+});
+gulp.task('sass', () =>  gulp.src('src/sass/**/*.scss').pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError)).pipe(autoprefixer(prefixerOpts)).pipe(gulp.dest('src/css')));
 
-gulp.task('copyImg', () => gulp.src('src/img/**/*').pipe(gulp.dest('dist/img')));
-
-gulp.task('copyFonts', () => gulp.src('src/fonts/**/*').pipe(gulp.dest('dist/fonts')));
-
-gulp.task('sass', () =>  gulp.src('src/sass/**/*.scss').pipe(sass().on('error', sass.logError)).pipe(autoprefixer(prefixerOpts)).pipe(gulp.dest('src/css')));
-
-gulp.task('minifyAll', ['sass'], () => gulp.src('src/**/*.html').pipe(usemin({
-    'js': [babel({presets: ['es2015']}),uglify({ mangle: false })],
-    'css': [autoprefixer(prefixerOpts), cssmin]
-})).pipe(gulp.dest('dist')));
 
 gulp.task('develop', ['generate-service-worker-dev'],  () => {
     

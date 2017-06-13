@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Bruno Rafael</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="manifest.json">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+        <link rel="icon" href="./favicon.ico" type="image/x-icon">
+        <script src="js/vendors/jquery/jquery-2.1.4.min.js"></script>
+        <link rel="stylesheet" href="css/vendors/plugins.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-99813535-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    </head>
+    <body>
+        <header id="header" class="container-fluid">
+            <a href="/">
+            <div class="header__img img-rounded"></div>
+            <h1 class="header__title">Bruno Rafael</h1>
+            </a>
+            <p class="header__text">Front-end developer e Ux Design também :)</p>
+        </header>
+        <nav id="nav" class="container-fluid">
+            <ul class="nav__list">
+                <li class="nav__list__item"><a href="/">HOME</a></li>
+                <li class="nav__list__item"><a href="/about.html">ABOUT</a></li>
+            </ul>
+        </nav>
+        <section id="conteudo" class="container">
+            <div class="conteudo__about">
+                <p class="conteudo__about__text">Olá, meu nome é Bruno, Tenho 18 anos, sou natural de maceió/Al, Sou autodidata na área de programação e design, e faço faculdade de Comunicação Social.</p>
+                <p class="conteudo__about__text">Os meus trabalhos estão no <a href="https://www.behance.net/brunorafael8" target="_blank">Behance</a> e no <a href="https://github.com/brunorafael8" target="_blank">GitHub</a>.</p>
+                <ul class="conteudo__about-list">
+                    <h3>#Conhecimentos:</h3>
+                    <li>Adobe Photoshop/ UX</li>
+                    <li>UX Design / UI Design</li>
+                    <li>HTML 5 / CSS 3 / Responsive</li>
+                    <li>Javascript ES6</li>
+                    <li>Vue.js</li>
+                    <li>GULP</li>
+                    <li>Bootstrap</li>
+                    <li>GIT</li>
+                    <li>Pré-processadores (less/sass)</li>
+                    <li>Firebase</li>
+                    <li>Google Analytics</li>
+
+                </ul>
+                Contato: <a href="mailto:bruninho_lito@hotmail.com" target="_blank">bruninho_lito@hotmail.com</a>
+            </div>
+        </section>
+        <footer id="footer" class="container-fluid" >
+            <ul class="footer__social-list">
+                    <li class="footer__social-list__item"><a name="facebook" href="https://www.facebook.com/brunorafaell8" target="_blank" rel="noopener"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+                    <li class="footer__social-list__item"><a name="twitter" href="https://twitter.com/brunorafaell8" target="_blank" rel="noopener"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                    <li class="footer__social-list__item"><a name="instagram" href="https://www.instagram.com/brunorafaell8/" target="_blank" rel="noopener"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li class="footer__social-list__item"><a name="linkedin" href="https://www.linkedin.com/in/brunorafael8/" target="_blank" rel="noopener"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                    <li class="footer__social-list__item"><a name="behance" href="https://www.behance.net/brunorafael8" target="_blank" rel="noopener"><i class="fa fa-behance-square" aria-hidden="true"></i></a></li>
+                    <li class="footer__social-list__item"><a name="github" href="https://github.com/brunorafael8" target="_blank" rel="noopener"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
+            </ul>   
+            <p class="footer__cc">Copyright © 2017 - Bruno Rafael</p>
+        </footer>
+        <script>
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js').then(function() {       
+                    console.log("Service Worker Registered"); 
+                });
+            }
+        </script>
+        <script src="js/vendors/bootstrap/bootstrap.min.js"></script>
+    </body>
+</html>
