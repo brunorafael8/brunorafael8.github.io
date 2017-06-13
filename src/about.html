@@ -8,7 +8,7 @@
         <link href="css/style.css" rel="stylesheet">
         <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
         <link rel="icon" href="./favicon.ico" type="image/x-icon">
-        <script src="js/vendors/jquery/jquery-2.1.4.min.js"></script>
+        <meta name="theme-color" content="#F44336">
         <link rel="stylesheet" href="css/vendors/plugins.css">
         <link rel="stylesheet" href="css/style.css">
         <script>
@@ -69,6 +69,10 @@
             </ul>   
             <p class="footer__cc">Copyright © 2017 - Bruno Rafael</p>
         </footer>
+        <!-- build:js js/app.js -->
+        <script src="js/vendors/jquery/jquery-2.1.4.min.js"></script>
+        <script src="js/vendors/bootstrap/bootstrap.min.js"></script>
+        <!-- endbuild -->
         <script>
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('/sw.js').then(function() {       
@@ -76,6 +80,5 @@
                 });
             }
         </script>
-        <script src="js/vendors/bootstrap/bootstrap.min.js"></script>
     </body>
 </html>
