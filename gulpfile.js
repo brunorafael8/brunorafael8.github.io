@@ -18,7 +18,7 @@ const gulp = require('gulp')
 csslint.addFormatter('csslint-stylish');
 prefixerOpts = {browsers: ['last 15 versions']};
 
-gulp.task('default', ['copy'], () => gulp.start('sass', 'usemin', 'generate-service-worker-prod'));
+gulp.task('default', ['copy'], () => gulp.start('sass', 'usemin', 'build-img', 'generate-service-worker-prod'));
 
 gulp.task('clearDist', () => gulp.src('dist').pipe(clean()));
 
