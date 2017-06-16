@@ -50,6 +50,11 @@
             }
             a{
                 color: #fff;
+                text-decoration: none;
+
+                &:hover{
+                    border-bottom: #fff solid;
+                }
             }
         }
     }

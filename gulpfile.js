@@ -49,7 +49,7 @@ gulp.task('usemin', function() {
     }))
     .pipe(gulp.dest('dist'));
 });
-gulp.task('sass', () =>  gulp.src('src/sass/**/*.scss').pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError)).pipe(autoprefixer(prefixerOpts)).pipe(gulp.dest('src/css')));
+gulp.task('sass', () =>  gulp.src('src/assets/sass/*.scss').pipe(sass().on('error', sass.logError)).pipe(autoprefixer(prefixerOpts)).pipe(gulp.dest('src/assets/css')));
 
 
 gulp.task('develop', ['generate-service-worker-dev'],  () => {
@@ -58,14 +58,14 @@ gulp.task('develop', ['generate-service-worker-dev'],  () => {
 
     gulp.watch('src/**/*').on('change', browserSync.reload);
 
-    gulp.watch('src/assets/js/**/*.js').on('change', (event) => {
+    gulp.watch('src/assets/js/*.js').on('change', (event) => {
         console.log(`Linting.js: ${event.path}`);
         gulp.src(event.path).pipe(jshint({"esversion": 6})).pipe(jshint.reporter(jshintStylish));
     });
 
-    gulp.watch('src/assets/sass/**/*.scss', ['sass']);
+    gulp.watch('src/assets/sass/*.scss', ['sass']);
 
-    gulp.watch('src/assets/css/**/*.css').on('change', (event) => {
+    gulp.watch('src/assets/css/*.css').on('change', (event) => {
         console.log('Linting.css ${event.path}');
         gulp.src(event.path).pipe(csslint()).pipe(csslint.formatter('stylish'));
     });
