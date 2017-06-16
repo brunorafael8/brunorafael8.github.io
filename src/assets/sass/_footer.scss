@@ -1,23 +1,24 @@
-#footer{
-    bottom: 0;
-    margin: 20px 0 0 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #F44336;
-    .footer__cc{
-        text-align: center;
-        color: #fff;
-    }
-    .footer__social-list{
-        display: flex;
-        list-style: none;
-        padding-right: 10px;
-        .footer__social-list__item {
-            padding-right: 10px;
-            font-size: 30px;
-            i{
-              color: #fff;  
+@supports (display: grid) {
+    #footer{
+        bottom: 0;
+        margin: 20px 0 0 0;
+        display: grid;
+        justify-content: center;
+        background-color: #F44336;
+        .footer__cc{
+            text-align: center;
+            color: #fff;
+        }
+        .footer__social-list{
+            display: grid;
+            grid-template-columns: repeat(6, 0.5fr);
+            list-style: none;
+            justify-content: center;
+            .footer__social-list__item {
+                img{
+                    width: 30%;
+                    height: 100%;
+                }
             }
         }
     }

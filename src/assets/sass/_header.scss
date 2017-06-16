@@ -3,6 +3,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     background-color: #F44336;
     a{
         display: flex;
@@ -16,11 +17,11 @@
             height: 100px;
             background-repeat: no-repeat;
             background-size: 100px 100px;
+            border-radius: 8px;
 
         }
         .header__title{
             color: #000;
-            margin-left: 20px;
             font-size:  30px;
         }
     }
@@ -57,5 +58,12 @@
                 }
             }
         }
+    }
+}
+@media (min-width: 550px){
+    .header__title{
+        color: #000;
+        margin-left: 20px;
+        font-size:  30px;
     }
 }
