@@ -11,13 +11,39 @@
         }
         .footer__social-list{
             display: grid;
-            grid-template-columns: repeat(6, 0.5fr);
+            grid-template-columns: repeat(3, 1fr);
             list-style: none;
             justify-content: center;
+            width: 100%;
             .footer__social-list__item {
-                img{
-                    width: 30%;
-                    height: 100%;
+                svg{
+                    width: 20%;
+                    height: 20%;
+                }
+            }
+        }
+    }
+    @media (min-width: 750px) {
+        #footer{
+            bottom: 0;
+            margin: 20px 0 0 0;
+            display: grid;
+            justify-content: center;
+            background-color: #F44336;
+            .footer__cc{
+                text-align: center;
+                color: #fff;
+            }
+            .footer__social-list{
+                display: grid;
+                grid-template-columns: repeat(6, 0.5fr);
+                list-style: none;
+                justify-content: center;
+                .footer__social-list__item {
+                    svg{
+                        width: 20%;
+                        height: 20%;
+                    }
                 }
             }
         }

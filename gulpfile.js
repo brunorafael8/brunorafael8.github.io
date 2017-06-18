@@ -13,12 +13,14 @@ const gulp = require('gulp')
     , jshintStylish = require('jshint-stylish')
     , usemin = require('gulp-usemin')
     , browserSync = require('browser-sync')
-    , swPrecache = require('./node_modules/sw-precache/lib/sw-precache.js');
+    , swPrecache = require('./node_modules/sw-precache/lib/sw-precache.js')
+    , inlinesource = require('gulp-inline-source')
+    , htmlmin = require('gulp-htmlmin');
 
 csslint.addFormatter('csslint-stylish');
 prefixerOpts = {browsers: ['last 15 versions']};
 
-gulp.task('default', ['copy'], () => gulp.start('sass', 'usemin', 'build-img', 'generate-service-worker-prod'));
+gulp.task('default', ['copy'], () => gulp.start('sass', 'usemin', 'minifyhtml', 'build-img', 'generate-service-worker-prod'));
 
 gulp.task('clearDist', () => gulp.src('dist').pipe(clean()));
 
@@ -37,16 +39,26 @@ gulp.task('babel', () => {
         .pipe(babel({
             presets: ['es2015']
         }))
-        .pipe(concat('js/app.js'))
+        .pipe(concat('assets/js/app.js'))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('dist'));
 });
-gulp.task('usemin', function() {
+gulp.task('usemin', ['inlinesource'], function() {
   return gulp.src('dist/**/*.html')
     .pipe(usemin({
       js: [babel],
       css: [cssmin]
     }))
+    .pipe(gulp.dest('dist'));
+});
+gulp.task('inlinesource', function () {
+    return gulp.src('./src/*.html')
+        .pipe(inlinesource())
+        .pipe(gulp.dest('./dist'));
+});
+gulp.task('minifyhtml', function() {
+  return gulp.src('./src/*.html')
+    .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('dist'));
 });
 gulp.task('sass', () =>  gulp.src('src/assets/sass/*.scss').pipe(sass().on('error', sass.logError)).pipe(autoprefixer(prefixerOpts)).pipe(gulp.dest('src/assets/css')));
