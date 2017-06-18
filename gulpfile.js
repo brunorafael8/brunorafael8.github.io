@@ -20,7 +20,7 @@ const gulp = require('gulp')
 csslint.addFormatter('csslint-stylish');
 prefixerOpts = {browsers: ['last 15 versions']};
 
-gulp.task('default', ['copy'], () => gulp.start('sass', 'usemin', 'minifyhtml', 'build-img', 'generate-service-worker-prod'));
+gulp.task('default', ['copy'], () => gulp.start('sass', 'usemin', 'build-img','minifyhtml'));
 
 gulp.task('clearDist', () => gulp.src('dist').pipe(clean()));
 
@@ -43,20 +43,21 @@ gulp.task('babel', () => {
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('dist'));
 });
-gulp.task('usemin', ['inlinesource'], function() {
+gulp.task('usemin', function() {
   return gulp.src('dist/**/*.html')
     .pipe(usemin({
       js: [babel],
       css: [cssmin]
     }))
     .pipe(gulp.dest('dist'));
+    
 });
 gulp.task('inlinesource', function () {
     return gulp.src('./src/*.html')
         .pipe(inlinesource())
         .pipe(gulp.dest('./dist'));
 });
-gulp.task('minifyhtml', function() {
+gulp.task('minifyhtml', ['generate-service-worker-prod'], function() {
   return gulp.src('./src/*.html')
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('dist'));
